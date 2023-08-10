@@ -1,0 +1,20 @@
+﻿@using System.Text.Json;
+<h1>Admin Dashboard</h1>
+<h3>@ViewBag.CommonData</h3>
+<a asp-action="Index" asp-controller="Home" asp-area="User">User Dashboard</a>
+
+@{
+    LoginModel user =
+    JsonSerializer.Deserialize<LoginModel>(TempData.Peek("user").ToString());
+}
+<p>Username: @user.Username </p>
+<p>Password:@user.Password </p>
+
+@*<h3>Coockie DemoUsername : @ViewBag.CookieData</h3>
+<h3>User Details Coockie : @ViewBag.userDetails.Username, @ViewBag.userDetails.Password</h3>*@
+
+<h3>Session Username : @ViewBag.SessionUserName</h3>
+
+<h3>New Username from Session: @ViewBag.NewUser.Username</h3>
+<h3>New Password from Session: @ViewBag.NewUser.Password</h3>
+
